@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const db = require('../database/models')
 
+
 const cartController = {
   index: (req, res) => {
     db.CartItem.findAll({
@@ -20,7 +21,7 @@ const cartController = {
         }],
       })
       .then((cartProducts) => {
-              return res.render('cart', { cartProducts })
+               return res.render('cart', { cartProducts })
       })
       .catch(error => console.log(error))
   },
@@ -54,6 +55,7 @@ const cartController = {
       where: {
         id: req.body.idCartItem,
       }
+
     }).then(() => {
       return res.redirect('/cart');
     })
