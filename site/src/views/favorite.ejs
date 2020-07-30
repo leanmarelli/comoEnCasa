@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- PARTIAL HEAD -->
+<%- include('./partials/head', {title: 'Favoritos', css: 'guardadoStyles.css'})%>
+<!-- END OF PARTIAL HEAD -->
+
+<body>
+<div class="body-container">
+<!-- PARTIAL HEADER -->
+<%- include('./partials/header')%>
+<!-- /PARTIAL HEADER -->
+
+    <!--BODY HOME -->
+<!-- Inicio Guardados -->
+
+        <h1 class="uk-heading-divider">CHEFS FAVORITOS</h1>
+            <ul uk-tab>
+                <li><a href="#">GUARDADOS</a></li>
+            </ul>
+                    <div class="container">
+                         <% if(favorites.length != 0) { %>
+                         <% favorites.forEach(favorite => { %>
+                            <div class="nameContainer">
+                                <p id="name">
+                                    @<%= favorite.followed.name %>
+                                </p>
+                            </div>
+                            <form action="/favorite/delete" method="POST" class="">
+                                <input type="hidden" name="idSeller" value="<%= favorite.id %>">
+                                <button type="submit" class="boton-eliminar" uk-close></button>
+                            </form>
+                        <% }) %>
+                        <% } else { %>
+                        <div class=>
+                            <h2 id="titleProducts">Aún no tienes chefs favoritos</h2>
+                        </div>
+                        <% } %>
+                    </div>
+
+<div>
+
+<!-- Fin Guardados-->
+
+<!-- Naranja decoración -->
+ <img src="/img/frenchfries.jpg" alt="" class="frenchfries">
+ <img src="/img/avocados.jpg" alt="" class="avocados">
+ <img src="/img/avocado.jpg" alt="" class="food">
+ <img src="/img/fondogris1.jpg" alt="" class="gris"> 
+
+   
+    <!-- END INDEX BODY -->
+
+<!-- PARTIAL FOOTER -->
+<%- include('./partials/footer')%>
+<!-- END OF PARTIAL FOOTER -->
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
+</body>
+
+</html>

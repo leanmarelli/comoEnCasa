@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- PARTIAL HEAD -->
+<%- include('./partials/head', {title: 'Editar', css: 'edicionProductoStyles.css'})%>
+
+<!-- END OF PARTIAL HEAD -->
+
+<body>
+    <div class="body-container">
+        <!-- PARTIAL HEADER -->
+        <%- include('./partials/header')%>
+        <!-- /PARTIAL HEADER -->
+        <div class="edicionContainer">
+            <div class="row">
+                <div class="col-12">
+                    <h1 id="titulo">ESTAS EDITANDO: </h1>
+                </div>
+            </div>
+            <div class="col-12">
+                <form action="/product/edit/<%= product.id %>" method="POST" enctype="multipart/form-data">
+                    <div class="row product-detail">
+                        <div class="col-12 col-md-6">
+                            <input class="uk-input" type="text" id="" name="name" class="form-input"  value="<%= product.name %>">
+                                <p><% if(typeof errors != 'undefined'){ %>
+                                    <%	if(errors.name){ %>
+                                    <%= errors.name.msg %>
+                                    <%	} %>
+                                    <% } %>
+                                </p>
+                        </div> <br>
+                        <div class="col-12 col-md-6">
+                            <label for="price" class="form-label"></label>
+                            <input class="uk-input" type="text" id="price" name="price" class="form-input"
+                                value="<%= product.price %>">
+                                <p><% if(typeof errors != 'undefined'){ %>
+                                    <%	if(errors.price){ %>
+                                    <%= errors.price.msg %>
+                                    <%	} %>
+                                    <% } %>
+                                </p>
+                        </div> <br>
+                        <div class="col-12 col-md-6">
+                            <label for="category" class="form-label"></label>
+                            <select name="idCategory" id="idCategory" class="form-input">
+                                <% categories.forEach(category => { %>
+                                <% if (product.idCategory == category.id) { %>
+                                <option selected value="<%= category.id %>"><%= category.name %></option>
+                                <% } else { %>
+                                <option value="<%= category.id %>"><%= category.name %></option>
+                                <% } %>
+                                <% }) %>
+                            </select>
+                            <p><% if(typeof errors != 'undefined'){ %>
+                                <%	if(errors.category){ %>
+                                <%= errors.category.msg %>
+                                <%	} %>
+                                <% } %>
+                            </p>
+                        </div> <br>
+                        <div class="col-12 col-md-6">
+                            <div class="row">
+                                <label for="image" class="form-label col-12"></label>
+                                <input type="file" id="image" name="img" class="form-file col-12">
+                                <p><% if(typeof errors != 'undefined'){ %>
+                                    <%	if(errors.img){ %>
+                                    <%= errors.img.msg %>
+                                    <%	} %>
+                                    <% } %>
+                                </p>
+                         </div>
+                        </div> <br>
+                        <div class="col-12">
+                            <label for="description" class="form-label"></label>
+                            <textarea class="uk-textarea" name="description" id="description"
+                                class="form-input"><%= product.description %></textarea>
+                        </div> <br>
+                        <div class="col-12">
+                            <button id="crear" type="submit">Guardar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!-- Naranja decoración -->
+        <img src="/img/food.jpg" alt="" class="food"> 
+        <img src="/img/fondogris1.jpg" alt="" class="gris"> 
+    </div>
+    <!-- PARTIAL FOOTER -->
+    <%- include('./partials/footer')%>
+    <!-- END OF PARTIAL FOOTER -->
+</body>
+
+</html>

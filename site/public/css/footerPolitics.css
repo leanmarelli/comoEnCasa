@@ -1,0 +1,283 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto',
+    sans-serif;
+}
+
+*:focus {
+    outline: none;
+}
+
+
+ul,
+ol {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a,
+a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+
+/*Container del body*/
+a,
+a:hover {
+    color: #3D3D3D;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+/*HEADER*/
+/* Logo */
+#logo {
+    width: 65px;
+    position: relative;
+    bottom: 19px;
+    right: 20px;
+}
+
+.logo-container {
+    width: 50%;
+    display: flex;
+    justify-content: start;
+}
+
+
+.row {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    width: 70%;
+}
+
+.header-container {
+    display: flex;
+    margin-top: 20px;
+}
+
+/*--- Barra del header ---*/
+#Home {
+    margin-right: 25px;
+}
+
+
+a:hover {
+    color: #bdac95;
+}
+
+/* --- Iconos ---*/
+/* Cada icono en específico (ul) */
+.header-icons {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*aca*/
+.header-icons ul {
+    display: flex;
+
+}
+
+.icons {
+    width: 20px;
+    margin-right: 8px;
+    height: 20px;
+    color: #3D3D3D;
+}
+
+/*Icono perfil*/
+#cerrarSesion {
+    border: none;
+    color: #3D3D3D;
+    font-weight: 500;
+    background-color: transparent;
+}
+
+.uk-dropdown {
+    z-index: 1;
+    box-sizing: border-box;
+    min-width: 83px;
+    padding: 8px;
+    color: #3D3D3D;
+    background: rgba(255, 255, 255, .15);
+}
+
+svg {
+    max-width: none;
+}
+
+/*hasta aca*/
+
+/*END OF HEADER*/
+
+
+/* BODY */
+.uk-heading-bullet {
+    margin-top: 3px;
+    color: #3D3D3D;
+    font-size: larger;
+}
+.uk-article-meta{
+font-weight: 300;
+}
+.uk-text-lead{
+    color: #5c5c5c;
+    font-size: large;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.contenedorEnvios {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.cookies{
+    width: 18%;
+    position: absolute;
+    top: 37%;
+    right: 89%;
+    opacity: 88%;
+     z-index: -10;
+}
+.cookies1{
+    left: 88%;
+    width: 18%;
+    position: absolute;
+    top: 67%;
+    opacity: 88%;
+     z-index: -10;
+}
+
+.cookingtools{
+    width: 24%;
+    position: absolute;
+    top: 37%;
+    right: 85%;
+    opacity: 95%;
+    z-index: -10;
+}
+
+
+.teacups{
+    width: 18%;
+    position: absolute;
+    top: 67%;
+    left: 85%;
+    opacity: 95%;
+     z-index: -10;
+}
+
+.utencillos{
+    width: 10%;
+    position: absolute;
+    top: 37%;
+    right: 0%;
+    opacity: 95%;
+    z-index: -10;
+}
+
+.utencillos1{
+    width: 11%;
+    position: absolute;
+    top: 67%;
+    z-index: -10;
+    opacity: 95%;
+}
+
+
+
+
+/*END of BODY*/
+
+
+
+
+
+
+
+/*FOOTER*/
+/*Main del footer*/
+.all-footer {
+    bottom: 0;
+    width: 100%;
+}
+
+.list-main-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-self: flex-end;
+}
+
+/*Iconos de redes sociales*/
+.list-icons-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.icon-twitter {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+
+.icon-instagram {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+
+.icon-facebook {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+
+/*END OF FOOTER*/ 
+@media (max-width: 480px) {
+
+    .contenedorEnvios{
+        width: 80%;
+    }
+
+    .cookies{
+        display: none;
+    }
+
+    .cookies1{
+        display: none;
+    }
+
+    .desayunos{
+        display: none;
+    }
+
+    .breakfast{
+        display: none;
+    }
+
+    .utencillos{
+        display: none;
+    }
+    .utencillos1{
+        display: none;
+    }
+
+    img.teacups {
+        display: none;
+    }
+    img.cookingtools {
+        display: none;
+    }
+}

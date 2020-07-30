@@ -1,0 +1,38 @@
+<!-- PARTIAL HEADER -->
+<header">
+    <div class="row header-container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <a href="/"><img id="logo" src="/img/LOGO.jpg" alt="logo"></a>
+        </div>
+
+        <!-- Icons-->
+        <div class="header-icons">
+            <% if (locals.user) { %>
+            <!-- si hay un usuario en sesssion, se muestra lo siguiente: -->
+            <ul>
+                <li><a class="icons" href="/search" uk-icon="search"></a></li>
+                <li><a class="icons" href="/home" uk-icon="home"></a></li>
+                <li><a class="icons" href="/cart" uk-icon="cart"></a></li>
+                <div class="uk-inline">
+                    <li><a class="icons" href="/users/profile/<%= locals.user.id %>" uk-icon="user"></a></li>
+            </ul>
+        </div>
+
+        <% } else { %>
+        <ul>
+            <li><a class="icons" href="/search" uk-icon="search"></a></li>
+
+            <li><a class="icons" href="/home" uk-icon="home"></a></li>
+
+            <li><a class="icons" href="/users/login" uk-icon="user"></a></li>
+
+            <li><a class="icons" href="/users/login" uk-icon="cart"></a></li>
+        </ul>
+        <% } %>
+
+    </div>
+    </div>
+    </div>
+    </header>
+    <!-- END OF PARTIAL HEADER -->

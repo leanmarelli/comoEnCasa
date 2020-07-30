@@ -1,0 +1,51 @@
+<!-- CONTACTO -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+        <!-- PARTIAL HEAD -->
+<%- include('./partials/head', {title: 'Contacto', css: 'contactoStyles.css'})%>
+
+<!-- END OF PARTIAL HEAD -->
+
+<body>
+    <div class="body-container">
+        <!-- PARTIAL HEADER -->
+        <%- include('./partials/header')%>
+        <!-- /PARTIAL HEADER -->
+
+ <!-- CONTACTO BODY -->
+
+        <article class="uk-article">
+            <hr>
+            <h1 style="text-align: center;" class="uk-heading-bullet">Contacto</h1>
+            <hr>
+            <div style="width: 70%; margin: 0 auto;">
+                <p class="uk-article-meta">Escribinos y contanos tu experiencia. </p>
+
+                <p class="uk-text-lead"> ¡Todo lo que nos puedas aportar nos ayuda a crecer!</p>
+                    <p class="minip">Podés también dejarnos tu comentario por algún inconveniente que haya surgido,para poder darte una respuesta.
+                        Gracias!
+                    </p>
+                        <p>Sugerencias y comentarios: <a>sugerencias@comoencasa.com.ar</a></p>
+                        
+                    </div>
+            </article>
+        <!-- Naranja decoración -->
+
+        <img src="/img/picada.jpg" alt="" class="picada">
+        <!-- ENVIOS BODY -->
+
+        <!-- PARTIAL JAVASCRIPT -->
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
+        <!-- /PARTIAL JAVASCRIPT -->
+
+        <!-- FOOTER -->
+        <%- include('./partials/footer')%>
+        <!-- /FOOTER -->
+    </div>
+</body>
+
+</html>

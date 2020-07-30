@@ -1,0 +1,77 @@
+<!-- PERFIL DE  USUARIO -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- PARTIAL HEAD -->
+<%- include('./partials/head', {title: 'Perfil', css: 'perfilStyles.css'})%>
+
+<!-- END OF PARTIAL HEAD -->
+
+<body>
+    <div class="body-container">
+        <!-- PARTIAL HEADER -->
+        <%- include('./partials/header')%>
+        <!-- /PARTIAL HEADER -->
+
+
+<div class="contenedor-perfil">
+      
+            <h1 id="title" class="products-title"><%= user.name %></h1>
+
+            <hr>
+
+            <button  class="uk-button uk-button-default"  id="favorite" type="submit" >
+                <a  href="/product/create" uk-icon="plus-circle"> Crear producto  </a>
+            </button>
+
+        
+        <button  class="uk-button uk-button-default"  id="favorite" type="submit" >
+            <a href="/favorite" uk-icon="heart"> Favoritos </a>
+        </button>
+<br>
+
+        <form action="/users/logout" method="POST">
+        <button id="cerrarSesion" type="submit">
+        <a href="" uk-icon="sign-out"> Cerrar sesión </a>
+        </button>
+         </form>
+
+</div>
+<div class="row justify-content-center">
+                <% if (user.products.length != 0) { %>
+            <h2 id="titleProducts">MIS PRODUCTOS</h2>
+            <div id=productContainer class="uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid="masonry: true">
+                <% user.products.forEach(function(product){ %>
+                <div>
+                    <a href="/product/detail/<%=product.id%>">
+                    <div class="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle">
+                        <div style="height: 300px">
+                                <img src="/img/<%=product.img%>" style="height: 75%; width: 100%; margin-bottom:3%" alt="" class="imagen-producto">
+                            <p id="name"><%= product.name %> </p>
+                            <p id="price">$<%= product.price %> </p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <% }) %>
+                <% } else { %>
+                <div>
+                    <h2 style="padding-bottom: 40%;" id="titleProducts">Aún no tienes productos</h2>
+                </div>
+                <%  } %>
+            </div>
+        </div>
+        <!-- PARTIAL JAVASCRIPT -->
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
+        <!-- /PARTIAL JAVASCRIPT -->
+
+        <!-- FOOTER -->
+        <%- include('./partials/footer')%>
+        <!-- /FOOTER -->
+    </div>
+</body>
+
+</html>

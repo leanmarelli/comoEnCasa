@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- PARTIAL HEAD -->
+<%- include('./partials/head', {title: 'Buscador', css: 'buscadorStyles.css'})%>
+
+<!-- END OF PARTIAL HEAD -->
+
+<body>
+    <div class="body-container">
+        <!-- PARTIAL HEADER -->
+        <%- include('./partials/header')%>
+        <!-- /PARTIAL HEADER -->
+
+        <!--BODY HOME -->
+        <!-- Buscador -->
+        <form class="uk-search uk-search-large" method="POST" action="/search/search">
+            <span uk-search-icon></span>
+            <input class="uk-search-input" type="text" name="search" placeholder="Buscar...">
+        </form>
+
+        <h1 class="uk-heading-line uk-text-center"><span>Recomendados</span></h1>
+
+        <div class="uk-grid-column-small uk-grid-row-large uk-child-width-1-3@s uk-text-center" uk-grid>
+               
+            <% products.forEach(product => { %>
+             <div>
+                 <a href="/product/detail/<%= product.id %>">
+                     <div class="uk-card uk-card-default uk-card-body">
+                         <img src="/img/<%= product.img %>" style="height: 100px; width: 130px; margin:3% 0"
+                             alt="<%= product.name %>"
+                             class="imagen-producto">
+                         <p id="name"><%= product.name %></p>
+                     </div>
+                 </a>
+             </div>
+            <% }) %>
+
+            
+        
+        </div>
+
+        
+
+
+        <!-- Naranja decoración -->
+        <img src="/img/quesoss.jpg" alt="" class="quesos">
+        <img src="/img/Ravioli.jpg" alt="" class="ravioli">
+        <img src="/img/fondogris1.jpg" alt="" class="gris"> 
+
+        <!-- END INDEX BODY -->
+
+        <!-- PARTIAL FOOTER -->
+        <%- include('./partials/footer')%>
+        <!-- END OF PARTIAL FOOTER -->
+
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
+    </div>
+</body>
+
+</html>

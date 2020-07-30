@@ -1,0 +1,99 @@
+<!-- REGISTRO DE NUEVOS USUARIOS -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- PARTIAL HEAD -->
+<%- include('./partials/head', {title: 'Registro', css: 'registerStyles.css'})%>
+
+<!-- END OF PARTIAL HEAD -->
+
+<body>
+<div class="body-container">
+<!-- PARTIAL HEADER -->
+<%- include('./partials/header')%>
+<!-- END OF PARTIAL HEADER -->
+
+        <!-- REGISTER BODY -->
+
+        <!-- ESTE ES EL FORM DE UI KIT, PARA USARLO HAY QUE TENER LOS TAGS DE CSS Y JS PEGADOS -->
+
+
+        <form action="/users/register" method="POST" class="register-container">
+            <h1 class="title-of-register">REGISTRO</h1>
+            <div class="uk-margin">
+                <!-- nombre -->
+                <label class="uk-form-label" for="form-stacked-text"></label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" placeholder="Nombre completo" type="text" name="name" value="<%= typeof old != 'undefined' ? old.name : ''%>">
+                    <p class="errores"><% if(typeof errors != 'undefined'){ %>
+                        <%	if(errors.name){ %>
+                        <%= errors.name.msg %>
+                        <%	} %>
+                        <% } %>
+                    </p>    
+                </div>
+                <!-- email -->
+                <label class="uk-form-label" for="form-stacked-text"></label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text-email" placeholder="Email" type="email" name="email" value="<%= typeof old != 'undefined' ? old.email : ''%>">
+                    <p class="errores"><% if(typeof errors != 'undefined'){ %>
+                        <%	if(errors.email){ %>
+                        <%= errors.email.msg %>
+                        <%	} %>
+                        <% } %>
+                    </p>    
+                </div>
+                <!-- password -->
+                <label class="uk-form-label" for="form-stacked-text"></label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="exampleInputPassword1" placeholder="Contraseña" type="password"
+                        name="password">
+                    <p class="errores"> <% if(typeof errors != 'undefined'){ %>
+						<%	if(errors.password){ %>
+						<%= errors.password.msg %>
+						<%	} %>
+                        <% } %> 
+                    </p>       
+                </div>
+                <!-- retyepassword -->
+                <label class="uk-form-label" for="form-stacked-text"></label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="exampleInputPassword2" placeholder="Repetir Contraseña" type="password"
+                        name="retype">
+                    <p class="errores"><% if(typeof errors != 'undefined'){ %>
+						<%	if(errors.retype){ %>
+						<%= errors.retype.msg %>
+						<%	} %>
+                        <% } %>
+                    </p>    
+                </div>
+                <button type="submit" class="boton-registrarse">REGISTRARSE</button>
+                <div class="cuenta">
+                    <p>Si ya tiene una cuenta,<a href="/users/login" class="hipervinculo"> haga click aquí para iniciar sesión.</a> </p></div>
+            </div>
+            <p class="datos">Al registrarse acepta nuestros terminos. <br> Politica de datos y de cookies.</p>
+        </form>
+        
+         <!-- Naranja decoración -->
+
+         <img src="/img/cafe.jpg" alt="" class="cafe"> 
+         <img src="/img/frutosS.jpg" alt="" class="frutosSecos"> 
+         <img src="/img/fondogris1.jpg" alt="" class="gris"> 
+         
+        <!-- REGISTER BODY -->
+
+        <!-- PARTIAL JAVASCRIPT -->
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
+        <!-- /PARTIAL JAVASCRIPT -->
+
+
+<!-- PARTIAL FOOTER -->
+<%- include('./partials/footer')%>
+<!-- END OF PARTIAL FOOTER -->
+    </div>
+</body>
+
+</html>

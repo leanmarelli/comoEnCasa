@@ -1,0 +1,89 @@
+<!-- POLITICA PRIVACIDAD -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- PARTIAL HEAD -->
+<%- include('./partials/head', {title: 'Historial', css: 'carritoStyles.css'})%>
+
+<!-- END OF PARTIAL HEAD -->
+
+<body>
+    <div class="body-container">
+        <!-- PARTIAL HEADER -->
+        <%- include('./partials/header')%>
+        <!-- /PARTIAL HEADER -->
+
+        <!-- Historial de compras -->
+
+            <div>
+                <div>
+                    <div>
+                        <h1 id="title"class="products-title">Historial de compras</h1>
+                    </div>
+                </div>
+                <hr>
+                <div class="product-detail">
+                    <div>
+                        <div>
+                            <% if(carts.length != 0){ %>
+                            <% carts.forEach(cart => { %>
+                                <div>
+                                    <section>
+                                        <h4><%= new Date(cart.createdAt).toLocaleDateString() %> </h4>
+                                        <section>
+                                            <div id="item">
+                                                 <% cart.items.forEach(item => { %> 
+                                                    <li>
+                                                    <b>Item:</b> <%= item.name %> -
+                                                        $<%= item.subtotal %>
+                                                    </li>
+                                                <% }) %>
+                                            </div>
+
+                                            <div>
+                                                <p class="product-detail-price">
+                                                  <b>Total:</b> $<%= cart.total %>
+                                                </p>
+                                            </div>
+                                        </section>
+                                    </section>
+                                </div>
+                            <hr>
+                            <% }) %>
+                            <% } else { %>
+                            <div class=>
+                                <h2 class="products-title">Aún no tienes
+                                    compras</h2>
+                            </div>
+                            <% } %>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- Naranja decoración -->
+            
+        <img src="/img/veggies.jpg" alt="" class="veggies"> 
+        <img src="/img/mashroom.jpg" alt="" class="mashroom"> 
+        <img src="/img/fondogris1.jpg" alt="" class="gris"> 
+  
+            <!-- ENVIOS BODY -->
+
+            <!-- PARTIAL JAVASCRIPT -->
+            <!-- UIkit JS -->
+            <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
+            <!-- /PARTIAL JAVASCRIPT -->
+
+            <!-- FOOTER -->
+            <%- include('./partials/footer')%>
+            <!-- /FOOTER -->
+    </div>
+</body>
+
+</html>

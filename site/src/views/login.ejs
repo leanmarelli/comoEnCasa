@@ -1,0 +1,91 @@
+<!-- LOGIN DE  USUARIOS -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- PARTIAL HEAD -->
+<%- include('./partials/head', {title: 'Login', css: 'loginStyles.css'})%>
+
+<!-- END OF PARTIAL HEAD -->
+
+<body>
+    <div class="body-container">
+        <!-- PARTIAL HEADER -->
+        <%- include('./partials/header')%>
+        <!-- /PARTIAL HEADER -->
+
+
+        <!-- LOGIN BODY -->
+
+        <!-- ESTE ES EL FORM DE UI KIT, PARA USARLO HAY QUE TENER LOS TAGS DE CSS Y JS PEGADOS -->
+        <form class="login-container" action="/users/login" method="POST" class="uk-form-stacked">
+            <h1 class="title-of-login">INICIAR SESION</h1>
+            <div class="uk-margin">
+                <!-- ingreso -->
+                <label class="uk-form-label" for="form-stacked-text"></label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text-email" placeholder="Email" type="text" name="email"
+                        value="<%= typeof old != 'undefined' ? old.email : ''%>">
+                    <p class="errores"><% if(typeof errors != 'undefined'){ %>
+                         <%	if(errors.email){ %>
+                         <%= errors.email.msg %>
+                         <%	} %>
+                         <% } %>
+                    </p>  
+                </div>
+
+                <!-- contraseña -->
+                <label class="uk-form-label" for="form-stacked-text"></label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" placeholder="Contraseña" type="password"
+                        name="password">
+                    <p class="errores"  > <% if(typeof errors != 'undefined'){ %>
+                        <%	if(errors.password){ %>
+                        <%= errors.password.msg %>
+                        <%	} %>
+                        <% } %>
+                    </p>
+                </div>
+
+
+                <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                    <label id="recuerdame"> Recuérdame <input class="uk-checkbox" name="remember" type="checkbox"></label>
+                </div>
+                
+                <!-- Boton -->
+                <button type="submit" class="boton-iniciar">INICIAR</button><br>
+                <!-- Google 
+                <a href="" class="google hipervinculo">Iniciar sesión con Google</a>-->
+                <br>
+                <!-- Hipervinculos FALTA completar la redireccion con el href -->
+                  <a href="" id="noTenesCuenta" class="forget-pass hipervinculo">Olvidé mi contraseña</a>
+                    <div class="cuenta">
+                        <p id="noTenesCuenta">Si aún no tiene una cuenta,<a href="/users/register" class="hipervinculo">
+                                haga click aquí para registrarse.</a> 
+                        </p>
+                    </div>
+                 
+            </div>
+        </form>
+
+        <!-- Naranja decoración -->
+      
+        <img src="/img/linea.jpg" alt="" class="linea1"> 
+        <img src="/img/linea.jpg" alt="" class="linea2">
+        <img src="/img/wine.jpg" alt="" class="wine"> 
+        <img src="/img/fondogris1.jpg" alt="" class="gris"> 
+        <!-- LOGIN BODY -->
+
+        <!-- PARTIAL JAVASCRIPT -->
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
+        <!-- /PARTIAL JAVASCRIPT -->
+
+        <!-- FOOTER -->
+        <%- include('./partials/footer')%>
+        <!-- /FOOTER -->
+    </div>
+</body>
+
+</html>

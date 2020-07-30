@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- PARTIAL HEAD -->
+<%- include('./partials/head', {title: product.name, css: 'productoStyles.css'})%>
+
+<!-- END OF PARTIAL HEAD -->
+
+<body>
+    <div class="body-container">
+        <!-- PARTIAL HEADER -->
+        <%- include('./partials/header')%>
+        <!-- /PARTIAL HEADER -->
+
+        <!--BODY HOME -->
+        <div id="tituloContainer">
+            <h1 id="titulo">DETALLE DE PRODUCTO:</h1>
+        </div>
+        <div class="uk-card uk-card-default uk-width-1-2@m">
+            <div class="uk-card-header">
+                <div class="uk-grid-small uk-flex-middle" uk-grid>
+                    <div class="uk-width-auto">
+                        <img class="uk-border-circle" width="40" height="40" src="/img/perfil.jpg">
+                    </div>
+                    <div class="uk-width-expand">
+                        <h3 class="uk-card-title uk-margin-remove-bottom"><%= product.name %></h3>
+                        <a class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">by
+                                <%= product.user.name %>
+                            </time></a>
+                        <div class="iconos">
+                                    <% if (locals.user.id == product.user.id) { %>
+                                    <div class=>
+                                        <h5 id="titleProducts"></h5>
+                                    </div>
+                                    <% } else { %>
+                            <% if (locals.user) { %>
+                            <form method="POST" action="/favorite/add">
+                                <input type="hidden" value="<%= product.idSeller %>" name="id">
+                                <button class="favorite" id="" type="submit">
+                                    <a href="/favorite" uk-icon="heart"></a>
+                                </button>
+                            </form>
+                            <% } else { %>
+                                <input type="hidden" value="<%= product.idSeller %>" name="id">
+                                <button class="favorite" id="" type="submit">
+                                    <a href="/users/login" uk-icon="heart"></a>
+                                </button>
+                            <% } %>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-detail">
+                <div class="row">
+                    <div class="col-12 col-lg-4">
+                        <div class="col-12 col-lg-8">
+                            <img id="imgDetail" src="/img/<%= product.img %>" alt="product image"
+                                class="product-detail-img">
+                            <p class="product-detail-description">
+                                <%= product.description %>
+                            </p>
+                        </div>
+                        <article class="product-detail-info">
+                            <p class="product-detail-category">
+                                <%= product.category.name %>
+                            </p>
+                            <div class="precioDetalle">
+                                <p>$<%= product.price %></p>
+                            </div>
+                            <hr>
+                            
+                            <% if (locals.user.id == product.user.id) { %> 
+                            <div class="buttonsContainer">
+                                <button class="uk-button uk-button-default uk-button-detail" id="editar"> <a
+                                        href="/product/edit/<%= product.id %>" class="action-button edit">EDITAR</a>
+                                </button>
+                                <form action="/product/delete/" method="POST" style="display: inline-flex">
+                                    <input type="hidden" name="id" id="" value="<%= product.id %>">
+                                    <button type="submit" id="eliminar"
+                                        class="uk-button uk-button-default uk-button-detail">ELIMINAR</button>
+                                </form>
+                            </div>
+                        </article>
+                        <% } else { %>
+                        <!-- <button class="uk-button uk-button-default">Agregar al carrito</button> -->
+                        <% if (locals.user) { %>
+                        <form method="POST" action="/cart/addToCart">
+                            <input id="quantity" type="number" name="quantity" value="1" min='1' max='100' step=1> <br>
+                            <input type="hidden" value="<%= product.id %>" name="id"> <br>
+                            <button style="text-align: center;" class="uk-button uk-button-default">Agregar al
+                                carrito</button>
+                        </form>
+                        <br>
+                        <% } else {%>
+                        <a href="/users/login">
+                            <input id="quantity" type="number" name="quantity" value="1" min='1' max='100' step=1> <br>
+                            <input type="hidden" value="<%= product.id %>" name="id"> <br>
+                            <button style="text-align: center; margin-bottom: 20px;"
+                                class="uk-button uk-button-default">Agregar al carrito</button>
+                        </a>
+                        <% } %>
+                        <% } %>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /product detail -->
+
+
+
+    <!-- FIN DE LOS COMENTARIOS -->
+    <img src="/img/soup.jpg" alt="" class="soup">
+    <img src="/img/honey.jpg" alt="" class="honey">
+
+    <!-- END INDEX BODY -->
+
+    <!-- PARTIAL FOOTER -->
+    <%- include('./partials/footer')%>
+    <!-- END OF PARTIAL FOOTER -->
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
+</body>
+
+</html>

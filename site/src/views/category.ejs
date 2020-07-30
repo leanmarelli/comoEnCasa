@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- PARTIAL HEAD -->
+<%- include('./partials/head', {title: 'Categoria', css: 'categoriaStyles.css'})%>
+
+<!-- END OF PARTIAL HEAD -->
+
+<body>
+    <div class="body-container">
+        <!-- PARTIAL HEADER -->
+        <%- include('./partials/header')%>
+        <!-- /PARTIAL HEADER -->
+
+        <!--BODY HOME -->
+        <!-- Inicio Categoria -->
+        <h1 class="uk-heading-divider">CATEGORIA</h1>
+        <ul class="categoryContainer">
+            <a href="/category/1"><li>DESAYUNO</li></a>
+            <a href="/category/2"><li>ALMUERZO</li></a>
+            <a href="/category/3"><li>MERIENDA</li></a>
+            <a href="/category/4"><li>CENA</li></a>
+        </ul>
+        
+        <li>
+            <div id=productContainer class="uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid="masonry: true">
+                <% products.forEach(function(product){ %>
+                     <div>
+                         <a href="/product/detail/<%= product.id %>">
+                            <div class="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle">
+                             <div style="height: 300px">
+                                 <img id="image" src="/img/<%= product.img %>"
+                                     alt="" class="imagen-producto""
+                                     alt="<%= product.name %>" class="imagen-producto">
+                                 <p id="name"><%= product.name %></p>
+                                 <p id="price">$<%= product.price %> </p>
+                             </div>
+                             </div>
+                         </a>
+                     </div>
+                <% })%>
+            </div>
+        </li>
+
+        <!-- Fin Categoria-->
+        <img src="/img/coffee.jpg" alt="" class="coffee">
+
+        <!-- END INDEX BODY -->
+    </div>
+        <!-- PARTIAL FOOTER -->
+        <%- include('./partials/footer')%>
+        <!-- END OF PARTIAL FOOTER -->
+
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
+</body>
+
+</html>

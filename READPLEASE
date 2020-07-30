@@ -1,0 +1,13 @@
+Cuando bajemos esto del repositorio, solo hay que apretar:
+npm install
+
+
+
+
+
+
+To do:
+- /recomendados==> traer 5 productos random para recomendados
+- /recomendados==> search formulario por get: product where: {name = req...} 
+     
+

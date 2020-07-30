@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- PARTIAL HEAD -->
+<%- include('./partials/head', {title: 'Vender', css: 'creacionProductoStyles.css'})%>
+
+<!-- END OF PARTIAL HEAD -->
+
+<body>
+    <div class="body-container">
+        <!-- PARTIAL HEADER -->
+        <%- include('./partials/header')%>
+        <!-- /PARTIAL HEADER -->
+        <div class="creacionContainer">
+            <h1 id="titulo">CREACION DE PRODUCTO</h1>
+            <form class="uk-grid-small" action="/product/create" method="POST" enctype="multipart/form-data">
+                <div>
+                    <div>
+                        <input class="uk-input" type="text" name="name" placeholder="Producto"   value="<%= typeof old != 'undefined' ? old.name : ''%>">
+                        <p class="errores">
+                            <% if(typeof errors != 'undefined'){ %>
+                            <%	if(errors.name){ %>
+                            <%= errors.name.msg %>
+                            <%	} %>
+                            <% } %>
+                        </p>
+                    </div>
+                    <div>
+                        <label for="price"></label>
+                        <input class="uk-input" type="text" name="price" placeholder="Precio" value="<%= typeof old != 'undefined' ? old.price : ''%>">
+                        <p class="errores">
+                            <% if(typeof errors != 'undefined'){ %>
+                            <%	if(errors.price){ %>
+                            <%= errors.price.msg %>
+                            <%	} %>
+                            <% } %>
+                        </p>
+                    </div>
+                    <div>
+                        <label for="idCategory" class="form-label"></label>
+                        <select name="idCategory" id="idCategory" class="form-input">
+                            <option value="">Elegí</option>
+                            <% categories.forEach(category => { %>
+                            <option value="<%= category.id %>"><%= category.name %></option>
+                            <% }) %>
+                        </select>
+                        <p class="errores"><% if(typeof errors != 'undefined'){ %>
+                            <%	if(errors.category){ %>
+                            <%= errors.category.msg %>
+                            <%	} %>
+                            <% } %>
+                        </p>
+                    </div>
+                    <div>
+                        <label id="seleccionarImagen" for="image" type="file"></label>
+                        <input id="nuestroinput" type="file" name="img" value="<%= typeof old != 'undefined' ? old.img : ''%>">
+                        <p class="errores"><% if(typeof errors != 'undefined'){ %>
+                            <%	if(errors.img){ %>
+                            <%= errors.img.msg %>
+                            <%	} %>
+                            <% } %>
+                        </p>
+                    </div>
+                    <div class="uk-margin">
+                        <label for="description"></label>
+                        <textarea class="uk-textarea" name="description" rows="5" placeholder="Descripción" ><%= typeof old != 'undefined' ? old.description : ''%></textarea >
+                    </div>
+
+
+                    <div>
+                        <button id="crear" type="submit">CREAR</button>
+                    </div> <br>
+                </div>
+            </form>
+
+           <!--  Naranja decoración -->
+            <img src="/img/cream.jpg" alt="" class="cream"> 
+            <img src="/img/fondogris1.jpg" alt="" class="gris"> 
+        </div>
+        <!-- PARTIAL FOOTER -->
+        <%- include('./partials/footer')%>
+        <!-- END OF PARTIAL FOOTER -->
+    </div>
+</body>
+
+</html>

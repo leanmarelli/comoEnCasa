@@ -1,0 +1,350 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto',
+    sans-serif;
+}
+
+*:focus {
+    outline: none;
+}
+
+
+ul,
+ol {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a,
+a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+
+/*Container del body*/
+a,
+a:hover {
+    color: #3D3D3D;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+/*HEADER*/
+/* Logo */
+#logo {
+    width: 65px;
+    position: relative;
+    bottom: 19px;
+    right: 20px;
+}
+
+.logo-container {
+    width: 50%;
+    display: flex;
+    justify-content: start;
+}
+
+
+.row {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    width: 70%;
+}
+
+.header-container {
+    display: flex;
+    margin-top: 20px;
+}
+
+/*--- Barra del header ---*/
+#Home {
+    margin-right: 25px;
+}
+
+
+a:hover {
+    color: #bdac95;
+}
+
+/* --- Iconos ---*/
+/* Cada icono en específico (ul) */
+.header-icons {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*aca*/
+.header-icons ul {
+    display: flex;
+
+}
+.icons {
+    width: 20px;
+    margin-right: 8px;
+    height: 20px;
+    color: #3D3D3D;
+}
+
+/*Icono perfil*/
+#cerrarSesion {
+    border: none;
+    color: #3D3D3D;
+    font-weight: 500;
+    background-color: transparent;
+}
+
+.uk-dropdown {
+    z-index: 1;
+    box-sizing: border-box;
+    min-width: 83px;
+    padding: 8px;
+    color: #3D3D3D;
+    background: rgba(255, 255, 255, .15);
+}
+
+svg {
+    max-width: none;
+}
+
+/*hasta aca*/
+
+/*END OF HEADER*/
+
+
+/*--- BODY ---*/
+
+body{
+    font-family: 'Roboto'
+}
+.categoryContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.categoryContainer li {
+    padding: 0 10px;
+}
+
+#productContainer {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.uk-margin {
+    margin-bottom: 20px;
+    margin-left: 25%;
+    margin-right: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.uk-tab {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20%;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    width: 450px;
+    margin: 0 auto;
+}
+
+p {
+    margin: 0;
+}
+
+#image {
+    height: 75%; 
+    width: 100%; 
+    margin-bottom:3%;
+}
+
+#name {
+    color: #cca677;
+    font-weight: 200;
+    font-size: 18px;
+    background-color: #fafbf5;
+    text-align: center;
+}
+
+#name:hover {
+    color: #bdac95;
+}
+
+#price {
+    font-weight: 300;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+.uk-card {
+    padding: 0;
+}
+
+/*Titulo categorias*/
+.uk-heading-divider{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 300;
+}
+.uk-h1, h1{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/*SUBCATEGORIAS*/
+.uk-tab>.uk-active>a {
+    border-color: #dcc8ae;
+}
+
+/*--- Naranja deco ---*/
+img.coffee{
+    width: 23%;
+    position: absolute;
+    left: 77.5%;
+    top: 60%;
+    z-index: -1;
+}
+
+/*--- END OF BODY ---*/
+
+#productContainer {
+    padding-bottom: 400px;
+}
+/*FOOTER*/
+/*Main del footer*/
+footer {
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+}
+
+.body-container {
+    height: 100%;
+}
+
+.list-main-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-self: flex-end;
+}
+
+/*Iconos de redes sociales*/
+.list-icons-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.icon-twitter {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+
+.icon-instagram {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+
+.icon-facebook {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+
+/*END OF FOOTER*/
+@media (max-width: 480px) {
+
+    .logo {
+        width: 12%;
+        position: absolute;
+        left: 5%;
+        top: 2%;
+    }
+
+    .header-logo {
+        width: 110%;
+        position: absolute;
+        left: 0;
+    }
+
+    .header-barra {
+        text-align: center;
+        position: absolute;
+        top: 13%;
+        z-index: 1;
+        width: 87%;
+    }
+
+    .header-home-barra {
+
+        position: absolute;
+        right: 120%;
+        top: 0px;
+    }
+
+    .header-barra-container {
+        position: relative;
+    }
+
+    .texto-index {
+        position: absolute;
+        top: 42%;
+        width: 69%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    img.coffee {
+       display: none;
+    }
+
+
+    .uk-grid>* {
+        padding-left: 0;
+    }
+
+    .header-icons ul {
+        top: 20px;
+        position: absolute;
+        right: 35px;
+    }
+
+    #cerrarSesion {
+        width: 20px;
+        height: 20px;
+        top: 4px;
+    }
+
+
+    .welcome {
+        text-align: center;
+        position: absolute;
+        bottom: 28%;
+        left: 20%;
+    }
+
+    p {
+        text-align: center;
+    }
+
+
+    footer {
+        bottom: 0;
+        padding-top: 100px;
+    }
+}

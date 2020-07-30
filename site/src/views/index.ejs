@@ -1,0 +1,54 @@
+<!-- El index es la página a donde llegan los usuarios. la que tiene el logo y la frase "comé como en casa" -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- PARTIAL HEAD -->
+<%- include('./partials/head', {title: 'Como en Casa', css: 'indexStyles.css'})%>
+
+<!-- END OF PARTIAL HEAD -->
+
+<body>
+  <div class="body-container">
+    <!-- PARTIAL HEADER -->
+    <%- include('./partials/header')%>
+    <!-- END OF PARTIAL HEADER -->
+    <div class="contenedor">
+      <!-- INDEX BODY -->
+      <div class="texto-index">
+        <h1>COME<br>COMO EN CASA</h1>
+        <h2>Comida casera, rica, a tan <br>solo pasos de tu casa...</h2>
+        <a href="/home"><button class="botonComenzar">COMENZAR</button></a>
+      </div>
+
+      <!-- Hojas decoración 
+      <img src="/img/clarito.jpg" alt="" class="reemplazo">-->
+
+      <!-- Naranja decoración -->
+      <img src="/img/tostaduli.jpg" alt="" class="naranjax">
+    </div>
+    
+    <img src="/img/fondoderecha.jpg" alt="" class="deco3">
+    <img src="/img/fondox.jpg" alt="" class="deco1">
+    <!-- <img src="/img/fondoderecha.jpg" alt="" class="deco2"> -->
+    <!-- END INDEX BODY -->
+
+    <!-- PARTIAL FOOTER -->
+  </div>
+  <%- include('./partials/footer')%>
+  <!-- END OF PARTIAL FOOTER -->
+
+  <script type='text/javascript' src='https://500px.com/embed.js'></script>
+
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
+
+  </div>
+  <script src="js/user.js"></script>
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
+</body>
+
+</html>

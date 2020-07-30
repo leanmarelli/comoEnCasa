@@ -1,0 +1,116 @@
+<!-- CARRITO DE COMPRAS -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- PARTIAL HEAD -->
+<%- include('./partials/head', {title: 'Check Out', css: 'carritoStyles.css'})%>
+
+<!-- END OF PARTIAL HEAD -->
+
+<body>
+    <div class="body-container">
+        <!-- PARTIAL HEADER -->
+        <%- include('./partials/header')%>
+        <!-- END OF PARTIAL HEADER -->
+
+        <!-- BODY CARRITO -->
+        <div class="container-cart">
+            <div class="title-of-cart-container">
+                <h2 class="title-of-cart">CARRITO</h2>
+            </div>
+            <form class="align-cart">
+                
+                    <div id="fondo">
+
+                         <!-- Detalle del producto a comprar typeof cartProducts !='undefined -->
+                        <% if(cartProducts.length != 0) { %>
+                            <!-- Subtitulos del carrito -->
+                            <div class="cart-subtitles">
+                                <div class="cart-subtitles">
+                                    <p class="producto">PRODUCTO</p>
+                                    <p class="cantidad">CANTIDAD</p>
+                                    <p class="precio">PRECIO</p>
+                                    <p class="subtotal">SUBTOTAL</p>
+                            
+                                </div>
+                            </div>
+                        <% let total = 0 %>
+
+                        <div class="cart-container">
+                            <% cartProducts.forEach(cartProduct => { %>
+                            <table class="">
+                                <div class="product-description" style="width: 100%;">
+                                    <td class="producto"> <img class="img-bizco"
+                                            src="/img/<%= cartProduct.product.img %>" alt="Bizcochuelo">
+                                        <%= cartProduct.product.name %></td>
+                                    <td class="cantidad">
+                                        <form action="/cart/quantity" method="POST">
+                                            <p><%= cartProduct.quantity  %> </p>
+                                        </form>
+                                        </label>
+                                    </td>
+                                    <td class="precio"> $<%= cartProduct.product.price %></td>
+                                    <td class="subtotal">$<%= cartProduct.subtotal %></td>
+                                    <td>
+                                        <form action="/cart/delete" method="POST" class="">
+                                            <input type="hidden" name="idCartItem" value="<%= cartProduct.id %>">
+                                            <button type="submit" class="boton-eliminar" uk-close></button>
+                                        </form>
+                                    </td>
+                                </div>
+                            </table>
+                                <% total += parseFloat(cartProduct.subtotal)  %>
+                                <% console.log (typeof(cartProduct.price)) %>
+                                <% }); %>
+                        </div>
+                        <div class="boton-finalizar-container">
+                            <form action="/cart/purchase" method="POST">
+                                <div class="total-carrito">
+                                    <br>
+                                    <p class="total-margin">TOTAL: $<%=total%></p>
+                                </div>
+                                <button class="boton-finalizar" type="submit">COMPRAR</button>
+                            </form>
+                        </div>
+                    </table>
+                        <% } else { %>
+                        <div>
+                            <h2 style="padding-bottom: 30%; text-align: center;" id="titleProducts">Aún no agregaste productos al carrito!</h2>
+                        </div>
+
+                        
+                        <%  } %>
+                        <br>
+                    </div>
+                </div>
+                </table>
+
+            </form>
+        </div>
+        <hr>
+        <div class="botonHistorial">
+            <button  class="uk-button uk-button-default"  id="historial" type="submit" >
+                <a href="/cart/history"> Historial de Compras </a>
+            </button>
+        </div>
+        <!-- END OF BODY CARRITO -->
+
+        <!-- Naranja decoración -->
+        <img src="img/comida.jpg" alt="" class="receta1">
+        <img src="img/fideos.jpg" alt="" class="receta2">
+
+
+
+        <!-- PARTIAL JAVASCRIPT -->
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
+        <!-- /PARTIAL JAVASCRIPT -->
+    </div>
+    <!-- PARTIAL FOOTER -->
+    <%- include('./partials/footer')%>
+    <!-- END OF PARTIAL FOOTER -->
+</body>
+
+</html>
