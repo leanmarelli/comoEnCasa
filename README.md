@@ -1,4 +1,4 @@
-# ComoEnCasa
+# COMO EN CASA
 
 ## Ecommerce Integrator Project within Digital House.
 
