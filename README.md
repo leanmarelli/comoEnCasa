@@ -1,7 +1,6 @@
 # ComoEnCasa
 
-Proyecto Integrador en marco de Digital House
-
+Proyecto Integrador ecommerce en marco de Digital House
 
 
 1. ### `npm install`
