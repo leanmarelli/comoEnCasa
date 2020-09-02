@@ -11,4 +11,4 @@ Ecommerce Integrator Project within Digital House.
 3. ### `npm start`
   Do this to run the app.
   
-3. ### Search `localhost:1777` in your own website.
+4. ### Search `localhost:1777` in your own website.
